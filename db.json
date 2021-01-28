@@ -1,0 +1,43 @@
+{
+  "imagemFundo": "https://wallpapercave.com/wp/wp5152759.jpg",
+  "titulo": "Quiz Sex Education",
+  "descricao": "Teste os seus conhecimentos sobre a série Sex Education",
+  "perguntas": [
+    {
+      "imagem": "",
+      "titulo": "",
+      "descricao": "",
+      "resposta": 2,
+      "alternativas": [
+        ".elemento",
+        "*elemento",
+        "#elemento",
+        "%elemento"
+      ]
+    },
+    {
+      "imagem": "",
+      "titulo": "",
+      "descricao": "",
+      "resposta": 0,
+      "alternativas": [
+         "background: linear-gradient(#e66465, #9198e5);",
+         "background: gradient(#e66465, #9198e5);"
+      ]
+    }
+  ],
+  "projetosExternos": [
+    ""
+  ],
+  "tema": {
+    "cores": {
+      "primaria": "#8133ee",
+      "secundaria": "#e040fb",
+      "fundoPrincipal": "#171B35",
+      "textoContraste": "#FFFFFF",
+      "respostaErrada": "#FF5722",
+      "respostaCerta": "#4CAF50"
+    },
+    "borderRadius": "4px"
+  }
+}
