@@ -1,4 +1,7 @@
+// --- Pacotes ---
 import styled from 'styled-components';
+
+// Arquivo com informações sobre o quiz
 import db from '../../db.json';
 
 const FundoQuiz = styled.div`
@@ -7,32 +10,11 @@ const FundoQuiz = styled.div`
   background-position: center;
   background-image: url(${ db.imagemFundo });
   background-color: ${ db.tema.cores.fundoPrincipal };
+  background-repeat: repeat-y;
   flex: 1;
   
   @media screen and (max-width: 500px) {
-    background-image: none;
-    
-    &:after {
-      content: "";
-      background-size: cover;
-      background-position: center;
-      background-image:
-        linear-gradient(transparent, ${ db.tema.cores.fundoPrincipal }),
-        url(${ db.imagemFundo });
-      display: block;
-      width: 100%;
-      height: 210px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1;
-    }
-    
-    *:first-child {
-      position: relative;
-      z-index: 10;
-    }
+    background-image: url(${ db.imagemFundoMobile });
   }
 `;
 

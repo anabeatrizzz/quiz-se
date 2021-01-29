@@ -1,4 +1,7 @@
+// --- Pacotes ---
 import styled from 'styled-components';
+
+// Arquivo com informações sobre o quiz
 import db from '../../db.json';
 
 const Card = styled.section`
