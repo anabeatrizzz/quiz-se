@@ -1,30 +1,43 @@
 {
   "imagemFundo": "https://wallpapercave.com/wp/wp5152759.jpg",
-  "imagemFundoMobile": "https://wallpapercave.com/wp/wp5152698.jpg",
+  "imagemFundoMobile": "https://i.ibb.co/txd9HZg/se.jpg",
   "titulo": "Quiz Sex Education",
   "descricao": "Teste os seus conhecimentos sobre a série Sex Education",
   "perguntas": [
     {
       "imagem": "",
-      "titulo": "",
-      "descricao": "",
+      "titulo": "Qual o nome do melhor amigo do Otis?",
+      "descricao": "Meu personagem favorito!",
       "resposta": 2,
-      "alternativas": [
-        ".elemento",
-        "*elemento",
-        "#elemento",
-        "%elemento"
-      ]
+      "alternativas": ["Eric"]
     },
     {
       "imagem": "",
-      "titulo": "",
+      "titulo": "Qual é a cor natural do cabelo da Maeve?",
       "descricao": "",
       "resposta": 0,
-      "alternativas": [
-         "background: linear-gradient(#e66465, #9198e5);",
-         "background: gradient(#e66465, #9198e5);"
-      ]
+      "alternativas": ["Marrom"]
+    },
+    {
+      "imagem": "",
+      "titulo": "Qual o esporte favorito do Jackson?",
+      "descricao": "",
+      "resposta": 0,
+      "alternativas": ["Natação"]
+    },
+    {
+      "imagem": "",
+      "titulo": "Nome da condição que a Lily provavelmente possui.",
+      "descricao": "",
+      "resposta": 0,
+      "alternativas": ["Vaginismo"]
+    },
+    {
+      "imagem": "",
+      "titulo": "Qual personagem ensinou sobre chuca?",
+      "descricao": "",
+      "resposta": 0,
+      "alternativas": ["Rahim"]
     }
   ],
   "projetosExternos": [
@@ -33,8 +46,8 @@
   "tema": {
     "cores": {
       "primaria": "#8133ee",
-      "secundaria": "#e040fb",
-      "fundoPrincipal": "#171B35",
+      "secundaria": "#bb33ff",
+      "fundoPrincipal": "#4400a3",
       "textoContraste": "#FFFFFF",
       "respostaErrada": "#FF5722",
       "respostaCerta": "#4CAF50"

@@ -15,6 +15,9 @@ import Card from '../src/componentes/Card.js';
 import GitHubIcon from '../src/componentes/GitHubIcon.js';
 import FundoQuiz from '../src/componentes/FundoQuiz.js';
 import Rodape from '../src/componentes/Rodape.js';
+import Input from '../src/componentes/Input.js';
+import Botao from '../src/componentes/Botao.js';
+import QuizConteiner from '../src/componentes/QuizConteiner.js';
 
 export default function Home() {
   const router = useRouter();
@@ -38,11 +41,18 @@ export default function Home() {
           </Card.Cabecalho>
           <Card.Conteudo>
             <form onSubmit={handleSubmit}>
-              <input
-                placeholder="Digite seu nome"
-                onChange={(e) => setNome(e.target.value)}
+              <Input
+                ph="Digite seu nome"
+                ocf={(e) => setNome(e.target.value)}
+                n="nome"
+                v={nome}
               />
-              <button disabled={!nome} type="submit">Jogar</button>
+              <Botao
+                disabled={!nome}
+                type="submit"
+              >
+                {'Jogar'}
+              </Botao>
             </form>
           </Card.Conteudo>
         </Card>
@@ -58,27 +68,3 @@ export default function Home() {
     </FundoQuiz>
   )
 }
-
-// Definindo um componente junto com o estilo dele
-const QuizConteiner = styled.article`
-  padding-left: 20%;
-  padding-right: 20%;
-  padding-top: 8%;
-  @media screen and (max-width: 500px){
-    margin: auto;
-    padding: 15px;
-  }
-`
-
-// const Titulo = styled.h1`
-//   font-size: 50px;
-//   // theme é o atributo de ThemeProvider que está em _app.js
-//   color: ${({ theme }) => theme.cores.primaria};
-// `
-
-// const ImagemFundo = styled.main`
-//   background-image: url(${db.imagemFundo});
-//   flex: 1;
-//   background-size: cover;
-//   background-position: center;
-// `
