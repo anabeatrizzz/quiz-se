@@ -7,7 +7,7 @@ import db from '../../db.json';
 const Card = styled.section`
   margin-top: 24px;
   margin-bottom: 24px;
-  border: 1px solid ${db.tema.cores.secundaria};
+  border: 1px solid ${ db.tema.cores.secundaria };
   background-color: transparent;
   backdrop-filter: blur(100px);
   border-radius: 8px;
@@ -17,7 +17,6 @@ const Card = styled.section`
     font-size: 16px;
     font-weight: 700;
     line-height: 1;
-    margin-bottom: 0;
   }
 
   p {
@@ -53,6 +52,23 @@ Card.Cabecalho = styled.header`
   
   * {
     margin: 0;
+  }
+`
+
+Card.Topico = styled.a`
+  outline: 0;
+  text-decoration: none;
+  color: ${ db.tema.cores.textoContraste };
+  background-color: ${ db.tema.cores.primaria };
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  border-radius: ${ db.tema.borderRadius };
+  transition: .3s;
+  display: block;
+
+  &:hover, &:focus {
+    opacity: .5;
   }
 `
 

@@ -42,15 +42,12 @@ export default function Home() {
           <Card.Conteudo>
             <form onSubmit={handleSubmit}>
               <Input
-                ph="Digite seu nome"
-                ocf={(e) => setNome(e.target.value)}
-                n="nome"
-                v={nome}
+                placeHolder="Digite seu nome"
+                onChangeFunction={(e) => setNome(e.target.value)}
+                nameInput="nome"
+                valueInput={nome}
               />
-              <Botao
-                disabled={!nome}
-                type="submit"
-              >
+              <Botao disabled={!nome} type="submit">
                 {'Jogar'}
               </Botao>
             </form>

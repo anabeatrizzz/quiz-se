@@ -1,6 +1,8 @@
+// --- Pacotes ---
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+// Arquivo com informações sobre o quiz
 import db from '../../db.json';
 
 const Botao = styled.button`

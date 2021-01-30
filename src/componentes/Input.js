@@ -7,21 +7,21 @@ import db from '../../db.json';
 
 // Tipo de dado das props recebidas
 Input.propTypes = {
-  ph: PropTypes.string.isRequired,
-  ocf: PropTypes.func.isRequired,
-  n: PropTypes.string.isRequired,
-  v: PropTypes.string.isRequired
+  placeHolder: PropTypes.string.isRequired,
+  onChangeFunction: PropTypes.func.isRequired,
+  nameInput: PropTypes.string.isRequired,
+  valueInput: PropTypes.string.isRequired
 }
 
-export default function Input({ ph, ocf, n, v }){
+export default function Input({ placeHolder, onChangeFunction, nameInput, valueInput }){
   return(
     <>
       <InputBase
         autoFocus={true}
-        placeholder={ph}
-        onChange={ocf}
-        name={n}
-        value={v}
+        placeholder={placeHolder}
+        onChange={onChangeFunction}
+        name={nameInput}
+        value={valueInput}
       />
     </>
   )
