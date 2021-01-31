@@ -27,7 +27,7 @@ const Card = styled.section`
 `
 
 Card.Conteudo = styled.div`
-  padding: 24px 32px 32px 32px;
+  padding: 24px 32px 24px 32px;
   
   & > *:first-child {
     margin-top: 0;

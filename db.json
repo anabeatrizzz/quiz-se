@@ -5,31 +5,31 @@
   "descricao": "Teste os seus conhecimentos sobre a série Sex Education",
   "perguntas": [
     {
-      "imagem": "https://placehold.it/400x400",
+      "imagem": "https://i.ibb.co/TmDpC6z/quiz-img-1.jpg",
       "titulo": "Qual o nome do melhor amigo do Otis?",
       "resposta": 0,
       "alternativas": ["Eric", "Maeve", "Jackson", "Aimee"]
     },
     {
-      "imagem": "https://placehold.it/400x400",
+      "imagem": "https://i.ibb.co/fnBB1R9/quiz-img-2.jpg",
       "titulo": "Qual é a cor natural do cabelo da Maeve?",
       "resposta": 1,
       "alternativas": ["Preto", "Marrom","Loiro", "Ruivo"]
     },
     {
-      "imagem": "https://placehold.it/400x400",
+      "imagem": "https://i.ibb.co/vPmLKjG/quiz-img-3.jpg",
       "titulo": "Qual o esporte favorito do Jackson?",
       "resposta": 2,
       "alternativas": ["Futebol", "Volêi", "Natação", "Esgrima"]
     },
     {
-      "imagem": "https://placehold.it/400x400",
+      "imagem": "https://i.ibb.co/TBC1mdT/quiz-img-4.jpg",
       "titulo": "Nome da condição que a Lily provavelmente possui.",
       "resposta": 3,
       "alternativas": ["Clamidia", "Hemorroida", "Aids", "Vaginismo"]
     },
     {
-      "imagem": "https://placehold.it/400x400",
+      "imagem": "https://i.ibb.co/mysxR4X/quiz-img-5.jpg",
       "titulo": "Qual personagem ensinou sobre chuca?",
       "resposta": 0,
       "alternativas": ["Rahim", "Ola", "Otis", "Adam"]
