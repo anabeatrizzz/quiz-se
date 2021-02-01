@@ -3,12 +3,6 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
-// Componente que simula a tag <head></head>
-import Head from 'next/head';
-
-// Arquivo com informações sobre o quiz
-import db from '../db.json';
-
 // --- Componentes ---
 import Card from '../src/componentes/Card.js';
 import GitHubIcon from '../src/componentes/GitHubIcon.js';
@@ -18,6 +12,9 @@ import Botao from '../src/componentes/Botao.js';
 import QuizConteiner from '../src/componentes/QuizConteiner.js';
 import Imagem from '../src/componentes/Imagem.js';
 import Formulario from '../src/componentes/Formulario.js';
+
+// Arquivo com informações sobre o quiz
+import db from '../db.json';
 
 export default function Quiz() {
   // Para lidar com roteamento
@@ -30,11 +27,12 @@ export default function Quiz() {
   const [nrPergunta, setNrPergunta] = useState(0);
 
   // Total de perguntas corretas
-  const [total, setTotal] = useState(1);
+  const [total, setTotal] = useState(0);
 
   function handleSetTotal(){
-    setTotal(total + 1)
-    console.log(total)
+    setTotal((valorAnterior) => {
+      return(valorAnterior+1)
+    })
   }
 
   function handleSubmit(){
@@ -60,9 +58,6 @@ export default function Quiz() {
 
   return(
       <FundoQuiz>
-        <Head>
-          <title>Quiz Sex Education</title>
-        </Head>
         <QuizConteiner>
           {
             carregando && (
@@ -76,12 +71,16 @@ export default function Quiz() {
           
           {
             !carregando && (
+              <>
               <Pergunta
                 pergunta={db.perguntas[nrPergunta]}
                 indice={nrPergunta}
                 onSubmitFunction={handleSubmit}
                 handleTotal={handleSetTotal}
               />
+
+              <h1>Total: {total}</h1>
+              </>
             )
           }
         </QuizConteiner>
@@ -103,7 +102,8 @@ function Pergunta({ pergunta, indice, onSubmitFunction, handleTotal }){
   // Se a alternativa selecionada é a correta ou não
   const correto = selecao === pergunta.resposta;
 
-  const radioNaoSelecionado = selecao !== undefined;
+  // Se alguma alternativa foi selecionada ou não
+  const radioSelecionado = selecao !== undefined;
 
   function handleSubmit(e){
     e.preventDefault();
@@ -164,8 +164,8 @@ function Pergunta({ pergunta, indice, onSubmitFunction, handleTotal }){
             })
           }
 
-          <Botao type="submit" disabled={!radioNaoSelecionado}>
-            {'Confirmar'}
+          <Botao type="submit" disabled={!radioSelecionado}>
+            Confirmar
           </Botao>
         </Formulario>
       </Card.Conteudo>

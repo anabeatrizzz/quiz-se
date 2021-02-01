@@ -1,4 +1,5 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import Head from 'next/head';
 
 // Arquivo com informações sobre o quiz
 import db from '../db.json';
@@ -8,6 +9,10 @@ export default function App({ Component, pageProps }) {
     <>
       <EstiloGlobal />
       <ThemeProvider theme={db.tema}>
+        <Head>
+          <title>Quiz Sex Education</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
         <Component {...pageProps} />
       </ThemeProvider>
     </>
