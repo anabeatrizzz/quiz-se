@@ -16,6 +16,8 @@ import FundoQuiz from '../src/componentes/FundoQuiz.js';
 import Input from '../src/componentes/Input.js';
 import Botao from '../src/componentes/Botao.js';
 import QuizConteiner from '../src/componentes/QuizConteiner.js';
+import Imagem from '../src/componentes/Imagem.js';
+import Formulario from '../src/componentes/Formulario.js';
 
 export default function Quiz() {
   // Para lidar com roteamento
@@ -28,10 +30,11 @@ export default function Quiz() {
   const [nrPergunta, setNrPergunta] = useState(0);
 
   // Total de perguntas corretas
-  const [total, setTotal] = useState(0);
+  const [total, setTotal] = useState(1);
 
   function handleSetTotal(){
     setTotal(total + 1)
+    console.log(total)
   }
 
   function handleSubmit(){
@@ -41,13 +44,10 @@ export default function Quiz() {
       setNrPergunta(nrPergunta + 1)
     // Se é a ultima pergunta,
     } else {
-      // Vá para a página de resultado
-      router.push('/resultado');
-      // Espere 1 segundo
-      setTimeout(() => {
-        // Volte para a primeira pergunta
-        setNrPergunta(0)
-      }, 1000)
+      router.push({
+        pathname: '/resultado',
+        query: {c: total}
+      });
     }
   }
 
@@ -55,11 +55,10 @@ export default function Quiz() {
   useEffect(() => {
     setTimeout(() => {
       setCarregando(false)
-    }, 2 * 1000)
+    }, 1000)
   }, [])
 
   return(
-    
       <FundoQuiz>
         <Head>
           <title>Quiz Sex Education</title>
@@ -88,7 +87,6 @@ export default function Quiz() {
         </QuizConteiner>
         <GitHubIcon link="#" />
       </FundoQuiz>
-    
   )
 }
 
@@ -105,6 +103,8 @@ function Pergunta({ pergunta, indice, onSubmitFunction, handleTotal }){
   // Se a alternativa selecionada é a correta ou não
   const correto = selecao === pergunta.resposta;
 
+  const radioNaoSelecionado = selecao !== undefined;
+
   function handleSubmit(e){
     e.preventDefault();
 
@@ -113,7 +113,7 @@ function Pergunta({ pergunta, indice, onSubmitFunction, handleTotal }){
 
     // Adicionando mais uma pergunta correta
     if(correto){
-      handleTotal()
+      handleTotal(1)
     }
     
     // Espere 2 segundos
@@ -136,28 +136,25 @@ function Pergunta({ pergunta, indice, onSubmitFunction, handleTotal }){
       <Card.Cabecalho>
         <h3>Pergunta {indice + 1} de {db.perguntas.length}</h3>
       </Card.Cabecalho>
-      <img
-        alt="Descrição"
-        style={{
-          width: "100%",
-          height: "190px",
-          objectFit: "cover",
-          objectPosition: "0px -70px"
-        }}
-        src={pergunta.imagem}
-      />
+      <Imagem alt="Descrição" src={pergunta.imagem} />
       <Card.Conteudo>
         <h2>{pergunta.titulo}</h2>
-        <form onSubmit={handleSubmit}>
+        <Formulario onSubmit={handleSubmit}>
           {
             pergunta.alternativas.map((alternativa, indice) => {
+              const estadoRadio = correto ? 'SUCESSO' : 'ERRO';
+              const selecionado = selecao === indice;
+
               return(
                 <Card.Topico
                   key={`chave${indice}`}
                   as="label"
                   htmlFor={`alter${indice}`}
+                  data-selecionado={selecionado}
+                  data-estado={enviado && estadoRadio}
                 >
                   <input
+                    style={{ display: "none" }}
                     id={`alter${indice}`}
                     type="radio"
                     name={nameInput}
@@ -169,20 +166,10 @@ function Pergunta({ pergunta, indice, onSubmitFunction, handleTotal }){
             })
           }
 
-          <Botao type="submit" disabled={!(selecao !== undefined)}>
+          <Botao type="submit" disabled={!radioNaoSelecionado}>
             {'Confirmar'}
           </Botao>
-        </form>
-        {
-          enviado && correto && (
-            <h3>Você acertou!</h3>
-          )
-        }
-        {
-          enviado && !correto && (
-            <h3>Você errou!</h3>
-          )
-        }
+        </Formulario>
       </Card.Conteudo>
     </Card>
   )
