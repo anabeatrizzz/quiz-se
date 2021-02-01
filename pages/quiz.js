@@ -112,9 +112,7 @@ function Pergunta({ pergunta, indice, onSubmitFunction, handleTotal }){
     setEnviado(true);
 
     // Adicionando mais uma pergunta correta
-    if(correto){
-      handleTotal(1)
-    }
+    if(correto){ handleTotal() }
     
     // Espere 2 segundos
     setTimeout(() => {
