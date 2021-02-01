@@ -71,16 +71,12 @@ export default function Quiz() {
           
           {
             !carregando && (
-              <>
               <Pergunta
                 pergunta={db.perguntas[nrPergunta]}
                 indice={nrPergunta}
                 onSubmitFunction={handleSubmit}
                 handleTotal={handleSetTotal}
               />
-
-              <h1>Total: {total}</h1>
-              </>
             )
           }
         </QuizConteiner>

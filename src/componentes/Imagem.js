@@ -7,8 +7,19 @@ const Imagem = styled.img`
   object-fit: cover;
   object-position: 0px -70px;
 
-  @media screen and (min-width: 500px){
+  /* Extra pequenos (600px pra baixo) */
+  @media only screen and (max-width: 600px) {
+    object-position: 0px -20px;
+  }
+
+  /* Pequenos (600px pra mais) */
+  @media only screen and (min-width: 600px) {
     object-position: 0px -30px;
+  }
+
+  /* Extra largos (1200px pra mais) */
+  @media only screen and (min-width: 1200px) {
+    object-position: 0px -60px;
   }
 `
 

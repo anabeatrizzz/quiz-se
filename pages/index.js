@@ -7,9 +7,6 @@ import { useState } from 'react';
 // Componente que simula a tag <head></head>
 import Head from 'next/head';
 
-// Arquivo com informações sobre o quiz
-import db from '../db.json';
-
 // --- Componentes ---
 import Card from '../src/componentes/Card.js';
 import GitHubIcon from '../src/componentes/GitHubIcon.js';
@@ -18,6 +15,9 @@ import Rodape from '../src/componentes/Rodape.js';
 import Input from '../src/componentes/Input.js';
 import Botao from '../src/componentes/Botao.js';
 import QuizConteiner from '../src/componentes/QuizConteiner.js';
+
+// Arquivo com informações sobre o quiz
+import db from '../db.json';
 
 export default function Home() {
   const router = useRouter();
@@ -56,7 +56,19 @@ export default function Home() {
         <Card>
           <Card.Conteudo>
             <h1>Quizzes da galera</h1>
-            <p>Conteudo Card 2</p>
+            {
+              db.projetosExternos.map(({ titulo, link }, indice) => {
+                return (
+                  <Card.Topico
+                    href={link}
+                    key={`link${indice}`}
+                    target="_blank"
+                  >
+                    {titulo}
+                  </Card.Topico>
+                )
+              })
+            }
           </Card.Conteudo>
         </Card>
         <Rodape />

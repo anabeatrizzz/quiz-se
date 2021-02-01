@@ -21,6 +21,7 @@ const FooterWrapper = styled.footer`
   align-items: center;
   border-radius: 8px;
   backdrop-filter: blur(100px);
+  margin-bottom: 20px;
   
   img {
     width: 58px;

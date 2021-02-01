@@ -36,7 +36,26 @@
     }
   ],
   "projetosExternos": [
-    ""
+    {
+      "titulo": "Quiz da nojinho",
+      "link": "https://disgust-quiz.arrivabeni.vercel.app/"
+    },
+    {
+      "titulo": "Flow Quiz",
+      "link": "https://flow-quiz.garubieru.vercel.app/"
+    },
+    {
+      "titulo": "Quiz Filosófico",
+      "link": "https://philosophy-quiz.lucasgab.vercel.app/"
+    },
+    {
+      "titulo": "Quiz Astronomico",
+      "link": "https://quiz-ander.andermsilva.vercel.app/"
+    },
+    {
+      "titulo": "Friends Quiz",
+      "link": "https://codequiz-base-fjyhsuvnu.vercel.app/"
+    }
   ],
   "tema": {
     "cores": {
