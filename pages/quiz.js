@@ -136,7 +136,9 @@ function Pergunta({ pergunta, indice, onSubmitFunction, handleTotal }){
         <Formulario onSubmit={handleSubmit}>
           {
             pergunta.alternativas.map((alternativa, indice) => {
+              // Recebe um valor diferente dependendo se a alternativa selecionada é a correta ou não
               const estadoRadio = correto ? 'SUCESSO' : 'ERRO';
+              
               const selecionado = selecao === indice;
 
               return(
@@ -153,6 +155,7 @@ function Pergunta({ pergunta, indice, onSubmitFunction, handleTotal }){
                     type="radio"
                     name={nameInput}
                     onChange={() => setSelecao(indice)}
+                    checked={selecionado}
                   />
                   {alternativa}
                 </Card.Topico>
