@@ -1,7 +1,7 @@
 // O NextJS já faz o import React from 'react'
 // --- Pacote ---
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 // --- Componentes ---
 import Card from '../src/componentes/Card.js';
@@ -17,14 +17,14 @@ import Formulario from '../src/componentes/Formulario.js';
 import db from '../db.json';
 
 export default function Quiz() {
-  // Para lidar com roteamento
-  const router = useRouter();
-  
   // Se a aplicação está na tela de carregamento ou não
   const [carregando, setCarregando] = useState(true);
 
   // Numero da pergunta
   const [nrPergunta, setNrPergunta] = useState(0);
+
+  // Se é a ultima pergunta
+  const [lastQuestion, setLastQuestion] = useState(false);
 
   // Total de perguntas corretas
   const [total, setTotal] = useState(0);
@@ -42,10 +42,7 @@ export default function Quiz() {
       setNrPergunta(nrPergunta + 1)
     // Se é a ultima pergunta,
     } else {
-      router.push({
-        pathname: '/resultado',
-        query: {c: total}
-      });
+      setLastQuestion(true)
     }
   }
 
@@ -70,7 +67,7 @@ export default function Quiz() {
           }
           
           {
-            !carregando && (
+            !carregando && !lastQuestion && (
               <Pergunta
                 pergunta={db.perguntas[nrPergunta]}
                 indice={nrPergunta}
@@ -79,8 +76,14 @@ export default function Quiz() {
               />
             )
           }
+
+          {
+            lastQuestion && !carregando && (
+              <Resultado qtd={total} />
+            )
+          }
         </QuizConteiner>
-        <GitHubIcon link="#" />
+        <GitHubIcon link="https://github.com/anabeatrizzz/quiz-se" />
       </FundoQuiz>
   )
 }
@@ -168,6 +171,38 @@ function Pergunta({ pergunta, indice, onSubmitFunction, handleTotal }){
           </Botao>
         </Formulario>
       </Card.Conteudo>
+    </Card>
+  )
+}
+
+function Resultado({ qtd }){
+  return(
+    <Card>
+      <Card.Cabecalho>
+        <h1>Você acertou {qtd} pergunta(s)!
+          {' '}
+          <Link href="/">
+            <a style={{ color: "white" }}>
+              Jogue de novo
+            </a>
+          </Link>
+        </h1>
+      </Card.Cabecalho>
+        <img
+          style={{ objectFit: "cover", width: "100%" }}
+          src="https://i.ibb.co/bF9Sz4J/last-img.jpg"
+        />
+      <Card.Cabecalho>
+        <h1>
+          Se puder, assista <a
+            style={{ color: "white" }}
+            href="https://www.netflix.com/title/80197526"
+            target="_blank"
+          >
+            Sex Education na Netflix!
+          </a> Esse ano tem a terceira temporada!
+        </h1>
+      </Card.Cabecalho>
     </Card>
   )
 }

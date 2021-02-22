@@ -4,9 +4,6 @@ import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
-// Componente que simula a tag <head></head>
-import Head from 'next/head';
-
 // --- Componentes ---
 import Card from '../src/componentes/Card.js';
 import GitHubIcon from '../src/componentes/GitHubIcon.js';
@@ -31,9 +28,6 @@ export default function Home() {
 
   return(
     <FundoQuiz>
-      <Head>
-        <title>Quiz Sex Education</title>
-      </Head>
       <QuizConteiner>
         <Card>
           <Card.Cabecalho>
@@ -42,13 +36,13 @@ export default function Home() {
           <Card.Conteudo>
             <form onSubmit={handleSubmit}>
               <Input
-                placeHolder="Digite seu nome"
+                placeHolder='Digite seu nome'
                 onChangeFunction={(e) => setNome(e.target.value)}
                 nameInput="nome"
                 valueInput={nome}
               />
               <Botao disabled={!nome} type="submit">
-                {'Jogar'}
+                Jogar
               </Botao>
             </form>
           </Card.Conteudo>
@@ -73,7 +67,7 @@ export default function Home() {
         </Card>
         <Rodape />
       </QuizConteiner>
-      <GitHubIcon link="#" />
+      <GitHubIcon link="https://github.com/anabeatrizzz/quiz-se" />
     </FundoQuiz>
   )
 }

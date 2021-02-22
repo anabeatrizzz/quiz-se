@@ -1,4 +1,6 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+
+// Componente que simula a tag <head></head>
 import Head from 'next/head';
 
 // Arquivo com informações sobre o quiz
